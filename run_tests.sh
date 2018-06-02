@@ -9,4 +9,4 @@ docker run --rm \
            -v "$PWD/reports":/reports \
            --security-opt seccomp:unconfined \
            --shm-size "256M" \
-           robot-framework
+           ypasmk/robot-framework
