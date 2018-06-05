@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-ACCESS_TOKEN=1ee51dc780f01291f3bc187f05b24ec81cceff0d
-
 docker run --rm \
            -e USERNAME="Ipatios Asmanidis" \
            -e ACCESS_TOKEN=${ACCESS_TOKEN} \
