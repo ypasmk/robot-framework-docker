@@ -9,7 +9,7 @@ RUN apt-get install -y build-essential libssl-dev libffi-dev python-dev
 RUN apt-get install -y python-pip python-dev gcc phantomjs firefox
 RUN apt-get install -y xvfb zip wget
 
-RUN apt-get update && apt-get install -y libnss3-dev libxss1 libappindicator1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
+RUN apt-get update && apt-get install -y libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
 
 RUN pip install --upgrade pip
 RUN pip install robotframework
@@ -30,7 +30,7 @@ RUN rm geckodriver-v0.11.1-linux64.tar.gz
 RUN cp geckodriver /usr/local/bin && chmod +x /usr/local/bin/geckodriver
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome*.deb
-RUN wget https://chromedriver.storage.googleapis.com/2.36/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
+RUN wget https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
 RUN cp chromedriver /usr/local/bin && chmod +x /usr/local/bin/chromedriver
 
 # RUN apt-get install -y udev
