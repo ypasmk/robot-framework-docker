@@ -23,6 +23,7 @@ RUN pip install urllib3[secure]
 RUN pip install robotframework-excellibrary
 RUN pip install openpyxl
 RUN pip install pyyaml
+RUN pip install Pillow
 
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
 RUN tar xvzf geckodriver-v0.11.1-linux64.tar.gz
