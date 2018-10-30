@@ -21,6 +21,8 @@ RUN pip install robotframework-xvfb
 RUN pip install certifi
 RUN pip install urllib3[secure]
 RUN pip install robotframework-excellibrary
+RUN pip install -U requests
+RUN pip install -U robotframework-requests
 RUN pip install openpyxl
 RUN pip install pyyaml
 RUN pip install Pillow
