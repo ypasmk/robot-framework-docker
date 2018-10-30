@@ -16,13 +16,11 @@ RUN pip install robotframework
 RUN pip install robotframework-sshlibrary
 RUN pip install robotframework-selenium2library
 RUN pip install -U robotframework-httplibrary
-RUN pip install -U requests && pip install -U robotframework-requests
+RUN pip install -U requests[security] && pip install -U robotframework-requests
 RUN pip install robotframework-xvfb
 RUN pip install certifi
 RUN pip install urllib3[secure]
 RUN pip install robotframework-excellibrary
-RUN pip install -U requests
-RUN pip install -U robotframework-requests
 RUN pip install openpyxl
 RUN pip install pyyaml
 RUN pip install Pillow
