@@ -8,6 +8,9 @@ RUN apt-get update
 RUN apt-get install -y build-essential libssl-dev libffi-dev python-dev
 RUN apt-get install -y python-pip python-dev gcc phantomjs firefox
 RUN apt-get install -y xvfb zip wget
+RUN apt-get install ca-certificates
+RUN apt-get install ntpdate
+RUN ntpdate -u ntp.ubuntu.com
 
 RUN apt-get update && apt-get install -y libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
 
