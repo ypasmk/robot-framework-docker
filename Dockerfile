@@ -11,12 +11,17 @@ RUN apt-get install -y xvfb zip wget
 RUN apt-get install ca-certificates
 RUN apt-get install ntpdate
 
+
 RUN git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-RUN echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-RUN echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-RUN echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
-RUN ${HOME}/.pyenv/bin/pyenv install 2.7.15
-RUN ${HOME}/.pyenv/bin/pyenv global 2.7.15
+RUN git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
+ENV HOME  /root
+ENV PYENV_ROOT $HOME/.pyenv
+ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
+
+RUN pyenv install 2.7.15
+RUN pyenv global 2.7.15
+RUN pyenv rehash
 
 RUN apt-get update && apt-get install -y libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
 
