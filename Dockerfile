@@ -40,7 +40,22 @@ RUN dpkg -i google-chrome*.deb
 RUN wget https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
 RUN cp chromedriver /usr/local/bin && chmod +x /usr/local/bin/chromedriver
 
+# Create build user
+RUN useradd -m -s /bin/bash tester && adduser tester sudo && echo "tester:tester" | chpasswd
+
+WORKDIR /home/tester
+
+COPY scripts/run_suite.sh /home/tester
+
+# Create /home/tester/suites as a mount point for sharing files with the host system.
+RUN mkdir suites
+
+# Make sure everything in /home/tester is owned by the build user
+RUN chown -R tester:tester .
+
+USER tester
+
 # RUN apt-get install -y udev
 
-CMD ["/scripts/run_suite.sh"]
+CMD ["/home/tester/run_suite.sh"]
 
