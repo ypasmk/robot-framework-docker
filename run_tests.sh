@@ -6,4 +6,4 @@ docker run --rm \
            -v "$PWD/suites":/home/tester/suites \
            --security-opt seccomp:unconfined \
            --shm-size "256M" \
-           robot-framework
+           ypasmk/robot-framework
