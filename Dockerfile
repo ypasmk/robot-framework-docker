@@ -38,7 +38,7 @@ RUN rm geckodriver-v0.11.1-linux64.tar.gz
 RUN cp geckodriver /usr/local/bin && chmod +x /usr/local/bin/geckodriver
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome*.deb
-RUN wget https://chromedriver.storage.googleapis.com/2.42/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
+RUN wget https://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
 RUN cp chromedriver /usr/local/bin && chmod +x /usr/local/bin/chromedriver
 
 # RUN apt-get install -y udev
