@@ -4,14 +4,12 @@ MAINTAINER "Ipatios Asmanidis" <ypasmk@gmail.com>
 
 LABEL name="Docker build for acceptance testing using the robot framework"
 
-RUN apt-get update
-RUN apt-get install -y build-essential libssl-dev libffi-dev python-dev
-RUN apt-get install -y python-pip python-dev gcc phantomjs firefox
-RUN apt-get install -y xvfb zip wget
-RUN apt-get install ca-certificates
-RUN apt-get install ntpdate
-
-RUN apt-get update && apt-get install -y libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
+RUN apt-get update \
+	&& apt-get install -y build-essential libssl-dev libffi-dev python-dev \
+		python-pip python-dev gcc phantomjs firefox \
+		xvfb zip wget ca-certificates ntpdate \
+		libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 RUN pip install robotframework
