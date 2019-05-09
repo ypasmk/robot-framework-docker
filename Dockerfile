@@ -10,25 +10,8 @@ RUN apt-get update \
 		xvfb zip wget ca-certificates ntpdate \
 		libnss3-dev libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation \
 	&& rm -rf /var/lib/apt/lists/*
-
-RUN pip install --upgrade pip
-RUN pip install robotframework
-RUN pip install robotframework-sshlibrary
-RUN pip install robotframework-selenium2library
-RUN pip install -U robotframework-httplibrary
-RUN pip install -U requests[security] && pip install -U robotframework-requests
-RUN pip install robotframework-xvfb
-RUN pip install certifi
-RUN pip install urllib3[secure]
-RUN pip install robotframework-excellibrary
-RUN pip install openpyxl
-RUN pip install pyyaml
-RUN pip install Pillow
-RUN pip install ndg-httpsclient
-RUN pip install pyopenssl
-RUN pip install pyasn1
-RUN pip install robotframework-testrail
-RUN pip install robotframework-angularjs 
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
 RUN tar xvzf geckodriver-v0.11.1-linux64.tar.gz
