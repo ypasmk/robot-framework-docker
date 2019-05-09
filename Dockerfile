@@ -13,16 +13,19 @@ RUN apt-get update \
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
-RUN tar xvzf geckodriver-v0.11.1-linux64.tar.gz
-RUN rm geckodriver-v0.11.1-linux64.tar.gz
-RUN cp geckodriver /usr/local/bin && chmod +x /usr/local/bin/geckodriver
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN dpkg -i google-chrome*.deb
-RUN wget https://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip && unzip chromedriver_linux64.zip
-RUN cp chromedriver /usr/local/bin && chmod +x /usr/local/bin/chromedriver
-
-# RUN apt-get install -y udev
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz \
+	&& tar xvzf geckodriver-*.tar.gz \
+	&& rm geckodriver-*.tar.gz \
+	&& mv geckodriver /usr/local/bin \
+	&& chmod a+x /usr/local/bin/geckodriver
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+	&& dpkg -i google-chrome*.deb \
+	&& rm google-chrome*.deb
+RUN wget https://chromedriver.storage.googleapis.com/74.0.3729.6/chromedriver_linux64.zip \
+	&& unzip chromedriver_linux64.zip \
+	&& rm chromedriver_linux64.zip \
+	&& mv chromedriver /usr/local/bin \
+	&& chmod +x /usr/local/bin/chromedriver
 
 CMD ["/scripts/run_suite.sh"]
 
