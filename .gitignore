@@ -1,0 +1,6 @@
+/reports/*
+docker-compose.override.yml
+
+!.keep
+!/reports/.keep*.pyc
+*.pyc
