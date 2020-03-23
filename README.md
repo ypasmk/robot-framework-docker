@@ -3,18 +3,51 @@
 Quick Start
 ===========
 
-Clone this repository
+### Clone this repository
 
     git clone git@github.com:ypasmk/robot-framework-docker.git
 
-Pull the image.
+### Pull the image.
 
     docker pull ypasmk/robot-framework
     
-Run the tests
+### Run the tests
+
+##### Method 1: use docker-compose
+
+    cd robot-framework-docker && docker-compose up
+    
+##### Method 2: use bash
 
     cd robot-framework-docker && ./run_tests.sh
     
+
+NOTE
+-----
+
+You can run the tests without cloning the repository by 
+creating a docker-compose.yml file with the following content:
+
+    version: '3.3'
+    services:
+        test:
+            network_mode: host
+            image: ypasmk/robot-framework
+            shm_size: "256M"
+            environment:
+                USERNAME: Ipatios Asmanidis
+            volumes: [
+               "$PWD/output:/output",
+               "$PWD/suites:/suites",
+               "$PWD/scripts:/scripts",
+               "$PWD/reports:/reports"
+            ]
+
+Afterwards, run the following command within the directory of 
+your docker-compose file:
+
+    docker-compose up
+
 
 Contents
 ========
