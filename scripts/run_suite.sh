@@ -7,7 +7,7 @@ if [ -z "$TEST_SUITE" ]; then
     TEST_SUITE=""
 fi
 
-CMD="robot $ROBOT_VARIABLES --console verbose --outputdir /reports /suites/$TEST_SUITE"
+CMD="robot --console verbose --outputdir /reports /suites/$TEST_SUITE"
 
 echo ${CMD}
 
