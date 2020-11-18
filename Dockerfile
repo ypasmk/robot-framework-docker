@@ -22,7 +22,7 @@ RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.24.0/gec
 RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 	&& dpkg -i google-chrome*.deb \
 	&& rm google-chrome*.deb \
-    && wget -q https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip \
+    && wget -q https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip \
 	&& unzip chromedriver_linux64.zip \
 	&& rm chromedriver_linux64.zip \
 	&& mv chromedriver /usr/local/bin \
