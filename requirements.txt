@@ -17,7 +17,7 @@ jsonpointer==2.0
 natsort==6.0.0
 ndg-httpsclient==0.5.1
 openpyxl==2.6.2
-paramiko==2.4.2
+paramiko==2.10.1
 Pillow==7.1.0
 pyasn1==0.4.5
 pycparser==2.19
