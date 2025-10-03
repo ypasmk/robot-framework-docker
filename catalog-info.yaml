@@ -6,6 +6,7 @@ metadata:
   labels:
     custom: custom_label_value
   annotations:
+    backstage.io/techdocs-ref: dir:.
     example.com/service-discovery: robot-framework
     circleci.com/project-slug: github/ypasmk/robot-framework-docker
   tags:
@@ -20,3 +21,13 @@ spec:
   lifecycle: production
   owner: ipa
   system: public-tools
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+    name: robot-framework
+    description: Robot framework for acceptance testing
+spec:
+    owner: ipa
+    domain: textdrops
