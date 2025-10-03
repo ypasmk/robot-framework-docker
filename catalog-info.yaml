@@ -18,5 +18,5 @@ metadata:
 spec:
   type: framework
   lifecycle: production
-  owner: Ipatios Asmanidis
+  owner: ipa
   system: public-tools
