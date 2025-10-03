@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: robot-framework
+  description: A framework for acceptance testing
+  labels:
+    custom: custom_label_value
+  annotations:
+    example.com/service-discovery: robot-framework
+    circleci.com/project-slug: github/ypasmk/robot-framework-docker
+  tags:
+    - java
+  links:
+    - url: https://github.com/ypasmk/robot-framework-docker
+      title: Robot Git Page
+      icon: dashboard
+      type: admin-dashboard
+spec:
+  type: framework
+  lifecycle: production
+  owner: Ipatios Asmanidis
+  system: public-tools
