@@ -22,7 +22,9 @@ RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v0.24.0/gec
 RUN wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 	&& dpkg -i google-chrome*.deb \
 	&& rm google-chrome*.deb \
-    && wget -q https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_linux64.zip \
+	&& CHROME_MAJOR_VERSION=$(google-chrome --version | sed 's/.* \([0-9]\+\)\..*/\1/') \
+	&& CHROME_DRIVER_FILE=$(wget -q -O - https://chromedriver.storage.googleapis.com/ | sed "s,.*<Key>\($CHROME_MAJOR_VERSION\.[0-9.]*/chromedriver_linux64.zip\)</Key>.*,\1,g") \
+	&& wget -q "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_FILE" \
 	&& unzip chromedriver_linux64.zip \
 	&& rm chromedriver_linux64.zip \
 	&& mv chromedriver /usr/local/bin \
